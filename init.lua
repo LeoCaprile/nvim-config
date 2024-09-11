@@ -557,8 +557,13 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
+        ts_ls = {
+          capabilities = capabilities,
+        },
+
+        eslint_d = {
+          capabilities = capabilities,
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -596,9 +601,6 @@ require('lazy').setup({
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            if server_name == 'tsserver' then
-              server_name = 'ts_ls'
-            end
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
