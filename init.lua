@@ -322,7 +322,7 @@ require('lazy').setup({
         },
 
         defaults = {
-          file_ignore_patterns = { 'node_modules/', '%.next/', '%.git' },
+          file_ignore_patterns = { 'dist/', 'node_modules/', '%.next/', '%.git', '%.nx/', 'coverage/' },
         },
         -- defaults = {
         --   mappings = {
